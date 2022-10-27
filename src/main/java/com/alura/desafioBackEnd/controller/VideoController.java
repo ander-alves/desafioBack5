@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -33,7 +34,7 @@ public class VideoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Video save(@RequestBody VideoDto videoDto) {
+    public Video save(@RequestBody @Valid VideoDto videoDto) {
         Video video = videoDto.converter(videoDto);
         return videoRepository.save(video);
     }
