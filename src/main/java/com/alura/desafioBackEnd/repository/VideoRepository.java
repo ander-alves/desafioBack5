@@ -1,11 +1,12 @@
-package com.alura.desafioBackEnd.domain.service.repository;
+package com.alura.desafioBackEnd.repository;
 
-
-import com.alura.desafioBackEnd.domain.service.model.Video;
+import com.alura.desafioBackEnd.model.Video;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface VideoRepository extends JpaRepository<Video, Long> {
-
+    List<Video> findByTitulo(String nomeVideo);
 }
